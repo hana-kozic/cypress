@@ -16,6 +16,7 @@ describe("Test Contact Us form via WebdriverUni", ()=>{
         cy.get('[type="submit"]').click();
         // ne može sa [type="submit"] cy.get('[type="submit"]').click().should('have.text', 'Thank You for your Message!')
         cy.get('h1').should('have.text', 'Thank You for your Message!')
+        haris
     });
 
     it("Should not be able to submit a successful submission via contact us form as all fields are required", ()=>{ 
@@ -26,6 +27,8 @@ describe("Test Contact Us form via WebdriverUni", ()=>{
         cy.get('[name="last_name"]').type("Blogs");
         cy.get('textarea.feedback-input').type("How can I learn Cypress?")
         cy.get('[type="submit"]').click();
+
+        
         cy.get('body').contains('Error: all fields are required')
     });
 })

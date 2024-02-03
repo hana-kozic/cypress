@@ -12,6 +12,10 @@ module.exports = defineConfig({
     experimentalSessionAndOrigin: true,
     defaultCommandTimeout: 10000,
     pageLoadTimeout: 120000,
+    screenshotOnRunFailure: true,
+    //videoCompression: 5,
+    trashAssetsBeforeRuns: true,
+    video: false,
     env: {
       first_name: "Sarah",
       webdriveruni_homepage: "http://www.webdriveruniversity.com"

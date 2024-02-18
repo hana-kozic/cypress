@@ -2,9 +2,10 @@
 
 describe("Test Contact Us form via Automation Test Store", () => {
   before(function () {
+    cy.viewport(550, 750)
     cy.fixture("userDetails").as("user")
   })
-
+  
   it("Should be able to submit a successful submission via contact us form", () => {
     cy.visit("https://automationteststore.com/")
     //cy.get("a[href$='contact']").click();

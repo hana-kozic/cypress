@@ -1,6 +1,7 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
+  projectId: 'bhmmwb',
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
@@ -15,7 +16,10 @@ module.exports = defineConfig({
     screenshotOnRunFailure: true,
     //videoCompression: 5,
     trashAssetsBeforeRuns: true,
-    video: false,
+    video: true,
+    videoUploadOnPasses: true,
+    viewportHeight: 1080,
+    viewportWidth: 1920,
     env: {
       first_name: "Sarah",
       webdriveruni_homepage: "http://www.webdriveruniversity.com"

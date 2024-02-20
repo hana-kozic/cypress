@@ -20,6 +20,10 @@ module.exports = defineConfig({
     videoUploadOnPasses: true,
     viewportHeight: 1080,
     viewportWidth: 1920,
+    reporter: 'cypress-multi-reporters',
+    reporterOptions: {
+    configFile: 'reporter-config.json',
+    },
     env: {
       first_name: "Sarah",
       webdriveruni_homepage: "http://www.webdriveruniversity.com"

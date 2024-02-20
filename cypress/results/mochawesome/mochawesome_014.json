@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-02-20T16:21:23.083Z",
+    "end": "2024-02-20T16:21:25.472Z",
+    "duration": 2389,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "35273ffa-d9da-4ab8-ad29-c2c3128baba3",
+      "title": "",
+      "fullFile": "cypress\\e2e\\webdriver-uni\\js-alerts.js",
+      "file": "cypress\\e2e\\webdriver-uni\\js-alerts.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d9e819b0-a005-4a04-8d11-d27342094b8e",
+          "title": "Handle js alerts",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Validate js confirm alert box using a stub",
+              "fullTitle": "Handle js alerts Validate js confirm alert box using a stub",
+              "timedOut": null,
+              "duration": 2308,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit(\"http://www.webdriveruniversity.com\");\ncy.get('#popup-alerts').invoke('removeAttr', 'target').click({\n  force: true\n});\nconst stub = cy.stub(); //we created a stub\ncy.on('window:confirm', stub); //we then aligned the stub with the event\n//stub is like a type of storage where, when that event gets fired,\n//the stub is then going to store the result\ncy.get('#button4').click().then(() => {\n  //then we clicked on the button to trigger the js alert\n  //we then created a promise - to je ovo .then(()=>)\n  expect(stub.getCall(0)).to.be.calledWith('Press a button!');\n  //here we added an assertion, then used the result stored in our stub\n  //by using getCall with the index of zero, because\n  //it only has one result because only one event has been fired\n  //then we used to.be.calledWith method to validate whether the\n  //event or js alert was fired with the correct message - 'Press a button!'\n}).then(() => {\n  //then we extended our promise with another then\n  //to ensure that we click on the okay button\n  //when the js alert appears\n  return true;\n}).then(() => {\n  //we used another then block to assert\n  //whether the correct message appeared once we've\n  //clicked Ok - 'You pressed OK!'\n  cy.get('#confirm-alert-text').contains('You pressed OK!');\n});",
+              "err": {},
+              "uuid": "b0bac494-d42e-4d43-a3d8-752151293f93",
+              "parentUUID": "d9e819b0-a005-4a04-8d11-d27342094b8e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b0bac494-d42e-4d43-a3d8-752151293f93"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 2308,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

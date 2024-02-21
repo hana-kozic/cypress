@@ -5,6 +5,7 @@ describe("Verify checkboxes via webdriveruni", () => {
     beforeEach(function() {
         // cy.navigateTo_WebdriverUni_Homepage();
         // cy.get('#dropdown-checkboxes-radiobuttons').invoke('removeAttr', 'target').click({force: true})
+        //cy.log(Cypress.env("name"));
         cy.navigateTo_WebdriverUni_Checkbox_Page();
     })
     
